@@ -1,0 +1,8 @@
+<nav>
+    <h1>Produkte</h1>
+    <ul>
+      <li *ngFor="let item of pageData">
+        <a [href]="item.contentReference">{{ item.label }}</a>
+      </li>
+    </ul>
+  </nav>
