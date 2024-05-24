@@ -1,27 +1,17 @@
-# WebAnwendung
+# CaaS (Content as a Service) / Headless Solution
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+Diese Lösung CaaS [Content as a Service] / Headless bietet eine REST-API, um die im CMS FirstSpirit erstellten Inhalte für beliebige Frontends verfügbar zu machen.
 
-## Development server
+## Dokumentation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Dokumentation auf Deutsch](https://navigationservice.e-spirit.cloud/docs/user/de/documentation.html)
+- [Documentation in English](https://navigationservice.e-spirit.cloud/docs/user/en/documentation.html)
 
-## Code scaffolding
+## API-Endpunkt
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Für die Vorbereitung haben wir diesen API-Endpunkt bereitgestellt:https://partner-navigationservice.e-spirit.cloud/navigation/preview.20eb4e8b-19a2-496a-b151-3317cd7dacd9?language=de_DE&format=caas
 
-## Build
+## Projektaufgabe
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Diese API wurde benutzt, um eine kleine PWA (Progressive Web App) oder SPA (Single Page Application) zu erstellen,  mit Angular:
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
