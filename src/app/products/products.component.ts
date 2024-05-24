@@ -8,7 +8,7 @@ import { PageItem } from '../interfaces/pageData';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './products.component.html',
-  styleUrl: './products.component.scss'
+  styleUrl: './products.component.scss',
 })
 export class ProductsComponent implements OnInit {
   pageData: PageItem[] = [];
@@ -16,20 +16,8 @@ export class ProductsComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.apiService
-      .getPageData()
-      .subscribe((response: { idMap: { [key: string]: PageItem } }) => {
-        const productsPageItem = Object.values(response.idMap).find(
-          (item) => item.label === 'Produkte'
-        );
-        if (productsPageItem) {
-          this.pageData.push(productsPageItem);
-          const productsPageId = productsPageItem.id;
-          const ProductsPageChildren = Object.values(response.idMap).filter(
-            (item) => item.parentIds && item.parentIds.includes(productsPageId)
-          );
-          this.pageData = this.pageData.concat(ProductsPageChildren);
-        }
-      });
+    this.apiService.filterPageData('Produkte').subscribe((data) => {
+      this.pageData = data;
+    });
   }
 }

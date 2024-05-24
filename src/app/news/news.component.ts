@@ -17,20 +17,8 @@ export class NewsComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.apiService
-      .getPageData()
-      .subscribe((response: { idMap: { [key: string]: PageItem } }) => {
-        const newsPageItem = Object.values(response.idMap).find(
-          (item) => item.label === 'News'
-        );
-        if (newsPageItem) {
-          this.pageData.push(newsPageItem);
-          const newsPageId = newsPageItem.id;
-          const newsPageChildren = Object.values(response.idMap).filter(
-            (item) => item.parentIds && item.parentIds.includes(newsPageId)
-          );
-          this.pageData = this.pageData.concat(newsPageChildren);
-        }
-      });
+    this.apiService.filterPageData('News').subscribe((data) => {
+      this.pageData = data;
+    });
   }
 }

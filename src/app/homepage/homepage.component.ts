@@ -17,20 +17,8 @@ export class HomepageComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.apiService
-      .getPageData()
-      .subscribe((response: { idMap: { [key: string]: PageItem } }) => {
-        const homePageItem = Object.values(response.idMap).find(
-          (item) => item.label === 'Startseite'
-        );
-        if (homePageItem) {
-          this.pageData.push(homePageItem);
-          const homepageId = homePageItem.id;
-          const aboutPageChildren = Object.values(response.idMap).filter(
-            (item) => item.parentIds && item.parentIds.includes(homepageId)
-          );
-          this.pageData = this.pageData.concat(aboutPageChildren);
-        }
-      });
+    this.apiService.filterPageData('Startseite').subscribe((data) => {
+      this.pageData = data;
+    });
   }
 }
